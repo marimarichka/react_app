@@ -5,3 +5,25 @@
   justify-content: center;
   flex-grow: 1;
 }
+
+.allContent {
+  background-color: white;
+  border-style: solid;
+  border-color: rgb(30, 130, 193);
+  border-radius: 4px;
+  width: 560px;
+  margin: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.todoTitle {
+  background-color: rgb(236, 236, 236);
+  height: 60px;
+  width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
