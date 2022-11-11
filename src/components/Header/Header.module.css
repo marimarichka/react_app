@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  background-color: rgb(30, 130, 193);
+  height: 100px;
+}
+
+.header img {
+  height: 60px;
+}
+
+.title {
+  padding-left: 20px;
+  color: white;
+}

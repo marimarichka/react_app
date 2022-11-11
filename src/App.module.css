@@ -1,0 +1,9 @@
+.appWrapper {
+  height: 100vh;
+}
+
+.mainPart {
+  display: flex;
+  justify-content: start;
+  flex-grow: 1;
+}
