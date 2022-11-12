@@ -12,7 +12,11 @@ const Content = () => {
   };
 
   const onClick = () => {
-    setTodos([...todos, value]);
+    const newTodo = {
+      value,
+      id: new Date().getTime()
+    };
+    setTodos([...todos, newTodo]);
     setValue('');
   };
 
@@ -22,6 +26,11 @@ const Content = () => {
     }
   };
 
+  const deleteTodo = (id) => {
+    const newTodo = todos.filter((todo) => id !== todo.id);
+    setTodos(newTodo);
+  };
+
   return (
     <div className={s.content}>
       <div className={s.allContent}>
@@ -29,7 +38,13 @@ const Content = () => {
           <input type='text' onKeyDown={onKeyDown} value={value} onChange={onInputChange} />
           <button onClick={onClick}>Add</button>
         </div>
-        {todos.map(name => <TodoItem name={name} />)}
+        {todos.map((todo, i) => (
+          <TodoItem 
+            name={todo.value} 
+            number={i + 1} 
+            deleteTodo={() => deleteTodo(todo.id)} 
+          />
+        ))}
       </div>
     </div>
   );
