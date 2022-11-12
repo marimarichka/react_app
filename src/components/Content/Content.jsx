@@ -8,7 +8,10 @@ const Content = () => {
   return (
     <div className={s.content}>
       <div className={s.allContent}>
-        <div className={s.todoTitle}>Todo List</div>
+        <div className={s.todoTitle}>
+          <input type = 'text' />
+          <button>Add</button>
+        </div>
         {todos.map(name => <TodoItem name={name} />)}
       </div>
     </div>
