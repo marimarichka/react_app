@@ -10,8 +10,10 @@
   align-items: center;
 }
 
-.number {
-  padding-right: 5px;
+.checkbox {
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
 }
 
 .todoName {

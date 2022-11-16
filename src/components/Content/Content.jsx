@@ -35,13 +35,18 @@ const Content = () => {
     <div className={s.content}>
       <div className={s.allContent}>
         <div className={s.todoTitle}>
-          <input type="text" onKeyDown={onKeyDown} value={value} onChange={onInputChange} />
+          <input className={s.forText} type="text" onKeyDown={onKeyDown} value={value} onChange={onInputChange} />
           <button onClick={onClick}>Add</button>
         </div>
         <div className={s.todoList}>
-          {todos.map((todo, i) => (
-            <TodoItem name={todo.value} number={i + 1} deleteTodo={() => deleteTodo(todo.id)} />
-          ))}
+            {todos.map((todo) => (
+              <TodoItem  
+                key={todo.id}
+                name={todo.value} 
+                deleteTodo={() => deleteTodo(todo.id)} 
+                id={todo.id}
+              />
+            ))}
         </div>
       </div>
     </div>
