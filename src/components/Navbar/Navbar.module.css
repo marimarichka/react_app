@@ -1,5 +1,5 @@
 .navbar {
-  width: 400px;
+  width: 280px;
   height: calc(100vh - 100px);
 }
 
@@ -11,4 +11,12 @@
   margin: 20px;
   padding-left: 20px;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.todoList:hover,  .todoListActive{
+  background-color: rgb(223, 223, 223);
+  border-style: solid;
+  border-color: rgb(30, 130, 193);
+  box-sizing: border-box;
 }

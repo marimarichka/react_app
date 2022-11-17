@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TodoItem from "./TodoItem/TodoItem";
-import s from "./Content.module.css";
+import s from "./TodoList.module.css";
 
-const Content = () => {
+const TodoList = () => {
   const [todos, setTodos] = useState([]);
 
   const [value, setValue] = useState("");
@@ -32,13 +32,13 @@ const Content = () => {
   };
 
   return (
-    <div className={s.content}>
+    <div className={s.todoList}>
       <div className={s.allContent}>
         <div className={s.todoTitle}>
           <input className={s.forText} type="text" onKeyDown={onKeyDown} value={value} onChange={onInputChange} />
           <button onClick={onClick}>Add</button>
         </div>
-        <div className={s.todoList}>
+        <div className={s.todoView}>
             {todos.map((todo) => (
               <TodoItem  
                 key={todo.id}
@@ -53,4 +53,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default TodoList;

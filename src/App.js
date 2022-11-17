@@ -1,7 +1,9 @@
-import s from './App.module.css';
-import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
-import Content from './components/Content/Content';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import s from "./App.module.css";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import TodoList from "./components/Content/TodoList";
+import Users from "./components/Users/Users";
 
 function App() {
   return (
@@ -9,7 +11,10 @@ function App() {
       <Header />
       <div className={s.mainPart}>
         <Navbar />
-        <Content />
+        <Routes>
+          <Route path="/" element={<TodoList />} />
+          <Route path="users/*" element={<Users />} />
+        </Routes>
       </div>
     </div>
   );

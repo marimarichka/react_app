@@ -1,4 +1,4 @@
-.content {
+.todoList {
   background-color: rgb(236, 236, 236);
   height: calc(100vh - 100px);
   display: flex;
@@ -31,7 +31,7 @@
   box-shadow: 0 4px 25px -2px gray;
 }
 
-.todoList {
+.todoView {
   overflow: auto;
   width: 100%;
   padding-bottom: 20px;
@@ -46,7 +46,7 @@
   border-radius: 4px;
 }
 
-.content button {
+.todoList button {
   position: absolute;
   right: 26px;
   background-color: rgb(30, 130, 193);
