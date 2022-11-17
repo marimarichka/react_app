@@ -1,0 +1,53 @@
+.usersWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: rgb(236, 236, 236);
+}
+
+.usersContent {
+  padding: 20px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.usersTable {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.usersHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 52px;
+  width: 100%;
+  color: white;
+  background-color: rgb(30, 130, 193);
+  border-radius: 4px 4px 0px 0px;
+}
+
+.usersHeader div, .oneUser div {
+  flex-grow: 1;
+  width: 100%;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.usersBody {
+  flex-grow: 1;
+  background-color: #fff;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.oneUser {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  background-color: rgb(236, 236, 236);
+  height: 40px;
+  border-radius: 4px;
+  align-items: center;
+}
