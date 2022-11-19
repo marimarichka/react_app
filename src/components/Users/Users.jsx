@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import s from "./Users.module.css";
 import Preloader from "../../SharedComponents/Preloader/Preloader";
+import SearchInput from "./SearchInput/SearchInput";
 
 const userAPI = "https://random-data-api.com/api/v2/users?size=30";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     fetch(userAPI).then(async (response) => {
@@ -16,10 +18,20 @@ const Users = () => {
     });
   }, []);
 
+  const filterUsers = users.filter((u) => {
+    return (
+      u.first_name.toUpperCase().includes(searchValue.toUpperCase()) ||
+      u.last_name.toUpperCase().includes(searchValue.toUpperCase())
+    );
+  });
+
   const usersTableRef = useRef();
 
   return (
     <div className={s.usersWrapper}>
+      <div>
+        <SearchInput searchValue={searchValue} setSearchValue={setSearchValue} />
+      </div>
       <div className={s.usersContent}>
         <div
           className={s.usersTable}
@@ -35,7 +47,7 @@ const Users = () => {
             {loading ? (
               <Preloader />
             ) : (
-              users.map(({ first_name, last_name, social_insurance_number, phone_number }) => (
+              filterUsers.map(({ first_name, last_name, social_insurance_number, phone_number }) => (
                 <div className={s.oneUser}>
                   <div>
                     {first_name + " "}

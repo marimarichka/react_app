@@ -32,7 +32,8 @@
   z-index: 1;
 }
 
-.usersHeader div, .oneUser div {
+.usersHeader div,
+.oneUser div {
   flex-grow: 1;
   width: 100%;
   padding-left: 10px;

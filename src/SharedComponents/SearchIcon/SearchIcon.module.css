@@ -1,0 +1,6 @@
+.search:hover {
+  border-style: solid;
+  border-color: rgb(30, 130, 193);
+  box-sizing: border-box;
+  border-radius: 50%;
+}
