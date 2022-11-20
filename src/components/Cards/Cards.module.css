@@ -1,11 +1,11 @@
-.usersWrapper {
+.cardsWrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   background-color: rgb(236, 236, 236);
 }
 
-.usersContent {
+.cardsContent {
   padding: 20px;
   display: flex;
   flex-grow: 1;
