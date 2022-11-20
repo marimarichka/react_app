@@ -11,6 +11,10 @@ const navbarElements = [
     path: "/users",
     text: "Users",
   },
+  {
+    path: "/bank",
+    text: "Bank",
+  },
 ];
 
 const Navbar = () => {

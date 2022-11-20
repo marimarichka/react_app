@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import TodoList from "./components/Content/TodoList";
 import Users from "./components/Users/Users";
+import Bank from "./components/Bank/Bank";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<TodoList />} />
           <Route path="users/*" element={<Users />} />
+          <Route path="bank/*" element={<Bank />} />
         </Routes>
       </div>
     </div>
