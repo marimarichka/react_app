@@ -1,0 +1,48 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: rgb(236, 236, 236);
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.clickableRow {
+  transition: all 0.1s;
+}
+
+.clickableRow:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 4px 2px lightgrey;
+}
+
+.oneTableItem {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(236, 236, 236);
+  height: 40px;
+  align-items: center;
+}
+
+.oneTableItem div {
+  width: 100%;
+  text-align: center;
+}
+
+.activeUAI,
+.notActiveUAI {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  background-color: rgb(236, 236, 236);
+  overflow: hidden;
+  transition: height 1s;
+}
+
+.activeUAI {
+  height: 150px;
+}
+
+.notActiveUAI {
+  height: 0;
+}

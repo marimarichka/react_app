@@ -5,6 +5,7 @@ import Table from "../../SharedComponents/Table/Table";
 import ActiveIcon from "../../SharedComponents/Icons/ActiveIcon/ActiveIcon";
 import BlockedIcon from "../../SharedComponents/Icons/BlockedIcon/BlockedIcon";
 import ThreeDotsIcon from "../../SharedComponents/Icons/ThreeDotsIcon/ThreeDotsIcon";
+import SubRowComponent from "./SubRowComponent/SubRowComponent";
 
 const userAPI = "https://random-data-api.com/api/v2/users?size=30";
 
@@ -50,6 +51,7 @@ const Users = () => {
           data={filterUsers}
           header={["Name", "SIN", "Status"]}
           keys={["name", "social_insurance_number", "status"]}
+          renderSubRow={(item) => <SubRowComponent item={item} />}
         />
       </div>
     </div>

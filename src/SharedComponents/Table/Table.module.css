@@ -18,8 +18,7 @@
   z-index: 1;
 }
 
-.tablesHeader div,
-.oneTableItem div {
+.tablesHeader div {
   flex-grow: 1;
   width: 100%;
   padding-left: 10px;
@@ -31,16 +30,6 @@
   background-color: #fff;
   border-radius: 0px 0px 4px 4px;
   overflow: auto;
-}
-
-.oneTableItem {
-  display: flex;
-  flex-direction: row;
-  margin: 10px;
-  background-color: rgb(236, 236, 236);
-  height: 40px;
-  border-radius: 4px;
-  align-items: center;
 }
 
 .hiddenDiv {

@@ -12,13 +12,9 @@ const navbarElements = [
     text: "Users",
   },
   {
-    path: "/bank",
-    text: "Bank",
-  },
-  {
     path: "/cards",
-    text: "Cards"
-  }
+    text: "Cards",
+  },
 ];
 
 const Navbar = () => {
