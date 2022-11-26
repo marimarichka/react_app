@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import TodoItem from "./TodoItem/TodoItem";
 import s from "./TodoList.module.css";
+import { addTodo, deleteTodo } from "../../redux/slices/todosSlice";
 
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
+  const todoList = useSelector((state) => state.todos.todoList);
+  const dispatch = useDispatch();
 
   const [value, setValue] = useState("");
 
@@ -12,11 +15,7 @@ const TodoList = () => {
   };
 
   const onClick = () => {
-    const newTodo = {
-      value,
-      id: new Date().getTime(),
-    };
-    setTodos([...todos, newTodo]);
+    dispatch(addTodo(value));
     setValue("");
   };
 
@@ -24,11 +23,6 @@ const TodoList = () => {
     if (e.key === "Enter") {
       onClick();
     }
-  };
-
-  const deleteTodo = (id) => {
-    const newTodo = todos.filter((todo) => id !== todo.id);
-    setTodos(newTodo);
   };
 
   return (
@@ -39,14 +33,9 @@ const TodoList = () => {
           <button onClick={onClick}>Add</button>
         </div>
         <div className={s.todoView}>
-            {todos.map((todo) => (
-              <TodoItem  
-                key={todo.id}
-                name={todo.value} 
-                deleteTodo={() => deleteTodo(todo.id)} 
-                id={todo.id}
-              />
-            ))}
+          {todoList.map((todo) => (
+            <TodoItem key={todo.id} name={todo.value} deleteTodo={() => dispatch(deleteTodo(todo.id))} id={todo.id} />
+          ))}
         </div>
       </div>
     </div>
