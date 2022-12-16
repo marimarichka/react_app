@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useMemo } from "react";
 import s from "./Users.module.css";
 import SearchInput from "./SearchInput/SearchInput";
 import Table from "../../SharedComponents/Table/Table";
@@ -6,39 +6,33 @@ import ActiveIcon from "../../SharedComponents/Icons/ActiveIcon/ActiveIcon";
 import BlockedIcon from "../../SharedComponents/Icons/BlockedIcon/BlockedIcon";
 import ThreeDotsIcon from "../../SharedComponents/Icons/ThreeDotsIcon/ThreeDotsIcon";
 import SubRowComponent from "./SubRowComponent/SubRowComponent";
+import { useGetUsersQuery } from "../../redux/API/API";
 
-const userAPI = "https://random-data-api.com/api/v2/users?size=30";
+const statusComponents = {
+  Active: ActiveIcon,
+  Blocked: BlockedIcon,
+  Idle: ThreeDotsIcon,
+  Pending: ThreeDotsIcon,
+};
 
-const getStatus = (user) => {
-  if (user.subscription.status === "Active") {
-    return <ActiveIcon />;
-  } else if (user.subscription.status === "Blocked") {
-    return <BlockedIcon />;
-  } else {
-    return <ThreeDotsIcon />;
-  }
+const formatUser = (u) => {
+  const StatusComponent = statusComponents[u.subscription.status];
+
+  return {
+    ...u,
+    name: u.first_name + " " + u.last_name,
+    status: <StatusComponent />,
+  };
 };
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
-  useEffect(() => {
-    fetch(userAPI).then(async (response) => {
-      const users = await response.json();
-      setUsers(
-        users.map((u) => ({
-          ...u,
-          name: u.first_name + " " + u.last_name,
-          status: getStatus(u),
-        }))
-      );
-      setLoading(false);
-    });
-  }, []);
+  const { data, isLoading } = useGetUsersQuery("30");
 
-  const filterUsers = users.filter((u) => u.name.toUpperCase().includes(searchValue.toUpperCase()));
+  const mappedUsers = useMemo(() => (data || []).map(formatUser), [data]);
+
+  const filterUsers = mappedUsers.filter((u) => u.name.toUpperCase().includes(searchValue.toUpperCase()));
 
   return (
     <div className={s.usersWrapper}>
@@ -47,7 +41,7 @@ const Users = () => {
       </div>
       <div className={s.usersContent}>
         <Table
-          loading={loading}
+          loading={isLoading}
           data={filterUsers}
           header={["Name", "SIN", "Status"]}
           keys={["name", "social_insurance_number", "status"]}

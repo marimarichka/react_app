@@ -11,9 +11,9 @@ const Checkbox = ({ label, onChange, checked, id }) => {
         id={`checkbox-${id}`}
         type="checkbox" 
         onChange={onChange} 
-        class={s.cssCheckbox}
+        className={s.cssCheckbox}
       />
-		  <label className={s.label} for={`checkbox-${id}`}>
+		  <label className={s.label} htmlFor={`checkbox-${id}`}>
         <span className={checked ? s.labelText + ' ' + s.labelTextChecked : s.labelText}>{label}</span>
         </label>
     </div>
