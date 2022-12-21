@@ -10,9 +10,9 @@ import { useGetUsersQuery } from "../../redux/API/mockAPI";
 
 const statusComponents = {
   Active: ActiveIcon,
-  // Blocked: BlockedIcon,
-  // Idle: ThreeDotsIcon,
-  // Pending: ThreeDotsIcon,
+  Blocked: BlockedIcon,
+  Idle: ThreeDotsIcon,
+  Pending: ThreeDotsIcon,
 };
 
 const formatUser = (u) => {

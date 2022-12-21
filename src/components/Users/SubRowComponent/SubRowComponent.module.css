@@ -28,12 +28,12 @@
 }
 
 .firstColumn {
-  width: 40%;
+  width: 35%;
 
 }
 
 .secondColumn {
-  width: 60%;
+  width: 55%;
 }
 
 .firstColumn,
@@ -42,7 +42,13 @@
   margin: 30px;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
-  padding-left: 20px;
+  align-items: center;
   color: black;
+}
+
+.pencil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
 }
