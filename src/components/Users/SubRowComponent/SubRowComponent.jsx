@@ -9,12 +9,12 @@ const SubRowComponent = ({ item }) => {
       </div>
       <div className={s.userAITable}>
         <div className={s.firstColumn}>
-          <div>{item.username}</div>
+          <div>{item.city}, {item.country}</div>
           <div>{item.email}</div>
         </div>
         <div className={s.secondColumn}>
-          <div>{item.phone_number}</div>
-          <div>{item.employment.title}</div>
+          <div>{item.phoneNumber}</div>
+          <div>{item.company}</div>
         </div>
       </div>
     </div>

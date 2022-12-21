@@ -6,21 +6,21 @@ import ActiveIcon from "../../SharedComponents/Icons/ActiveIcon/ActiveIcon";
 import BlockedIcon from "../../SharedComponents/Icons/BlockedIcon/BlockedIcon";
 import ThreeDotsIcon from "../../SharedComponents/Icons/ThreeDotsIcon/ThreeDotsIcon";
 import SubRowComponent from "./SubRowComponent/SubRowComponent";
-import { useGetUsersQuery } from "../../redux/API/API";
+import { useGetUsersQuery } from "../../redux/API/mockAPI";
 
 const statusComponents = {
   Active: ActiveIcon,
-  Blocked: BlockedIcon,
-  Idle: ThreeDotsIcon,
-  Pending: ThreeDotsIcon,
+  // Blocked: BlockedIcon,
+  // Idle: ThreeDotsIcon,
+  // Pending: ThreeDotsIcon,
 };
 
 const formatUser = (u) => {
-  const StatusComponent = statusComponents[u.subscription.status];
+  const StatusComponent = statusComponents[u.status];
 
   return {
     ...u,
-    name: u.first_name + " " + u.last_name,
+    name: u.firstName + " " + u.lastName,
     status: <StatusComponent />,
   };
 };
@@ -28,7 +28,7 @@ const formatUser = (u) => {
 const Users = () => {
   const [searchValue, setSearchValue] = useState("");
 
-  const { data, isLoading } = useGetUsersQuery("30");
+  const { data, isLoading } = useGetUsersQuery("1");
 
   const mappedUsers = useMemo(() => (data || []).map(formatUser), [data]);
 
@@ -43,8 +43,8 @@ const Users = () => {
         <Table
           loading={isLoading}
           data={filterUsers}
-          header={["Name", "SIN", "Status"]}
-          keys={["name", "social_insurance_number", "status"]}
+          header={["Name", "Phone number", "Status"]}
+          keys={["name", "phoneNumber", "status"]}
           renderSubRow={(item) => <SubRowComponent item={item} />}
         />
       </div>
