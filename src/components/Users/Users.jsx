@@ -7,6 +7,7 @@ import BlockedIcon from "../../SharedComponents/Icons/BlockedIcon/BlockedIcon";
 import ThreeDotsIcon from "../../SharedComponents/Icons/ThreeDotsIcon/ThreeDotsIcon";
 import SubRowComponent from "./SubRowComponent/SubRowComponent";
 import { useGetUsersQuery } from "../../redux/API/mockAPI";
+import Dialog from "@mui/material/Dialog";
 
 const statusComponents = {
   Active: ActiveIcon,
@@ -27,8 +28,8 @@ const formatUser = (u) => {
 
 const Users = () => {
   const [searchValue, setSearchValue] = useState("");
-
-  const { data, isLoading } = useGetUsersQuery("1");
+  const [currentUser, setCurrentUser] = useState(null);
+  const { data, isLoading } = useGetUsersQuery("2");
 
   const mappedUsers = useMemo(() => (data || []).map(formatUser), [data]);
 
@@ -45,9 +46,12 @@ const Users = () => {
           data={filterUsers}
           header={["Name", "Phone number", "Status"]}
           keys={["name", "phoneNumber", "status"]}
-          renderSubRow={(item) => <SubRowComponent item={item} />}
+          renderSubRow={(item) => <SubRowComponent item={item} setCurrentUser={setCurrentUser}/>}
         />
       </div>
+      <Dialog open={!!currentUser} onClose={() => setCurrentUser(null)}>
+        {currentUser?.name}
+      </Dialog>
     </div>
   );
 };

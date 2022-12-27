@@ -3,7 +3,8 @@ import s from "./SubRowComponent.module.css";
 import { Pencil } from "phosphor-react";
 import IconButton from "../../../SharedComponents/IconButton/IconButton";
 
-const SubRowComponent = ({ item }) => {
+const SubRowComponent = ({ item, setCurrentUser }) => {
+
   return (
     <div className={s.userAIWrapper}>
       <div className={s.userAvatar}>
@@ -11,7 +12,9 @@ const SubRowComponent = ({ item }) => {
       </div>
       <div className={s.userAITable}>
         <div className={s.firstColumn}>
-          <div>{item.city}, {item.country}</div>
+          <div>
+            {item.city}, {item.country}
+          </div>
           <div>{item.email}</div>
         </div>
         <div className={s.secondColumn}>
@@ -19,7 +22,7 @@ const SubRowComponent = ({ item }) => {
           <div>{item.company}</div>
         </div>
         <div className={s.pencil}>
-        <IconButton icon={<Pencil size={50} />} />
+          <IconButton onClick={() => setCurrentUser(item)} icon={<Pencil size={50} />} />
         </div>
       </div>
     </div>
