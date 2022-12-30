@@ -30,7 +30,7 @@ const TodoList = () => {
       <div className={s.allContent}>
         <div className={s.todoTitle}>
           <input className={s.forText} type="text" onKeyDown={onKeyDown} value={value} onChange={onInputChange} />
-          <button onClick={onClick}>Add</button>
+          <button className={s.addButton} onClick={onClick}>Add</button>
         </div>
         <div className={s.todoView}>
           {todoList.map((todo) => (

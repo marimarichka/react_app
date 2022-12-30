@@ -46,7 +46,7 @@
   border-radius: 4px;
 }
 
-.todoList button {
+.addButton {
   position: absolute;
   right: 26px;
   background-color: rgb(30, 130, 193);

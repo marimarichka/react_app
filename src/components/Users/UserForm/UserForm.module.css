@@ -1,0 +1,23 @@
+.userFormWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+  width: 500px;
+  height: 100%;
+  padding: 10px;
+}
+
+.saveButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 8px 0px 8px 0px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
