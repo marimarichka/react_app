@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import s from "./UserForm.module.css";
+import { useUpdateUserMutation } from "../../../redux/API/mockAPI";
 
 const formScheme = [
   { id: "firstName", label: "First name" },
@@ -13,6 +14,8 @@ const formScheme = [
 ];
 
 const UserForm = ({ user, closeDialog }) => {
+  const [updateUser] = useUpdateUserMutation();
+
   const { control, handleSubmit } = useForm({
     defaultValues: {
       firstName: user.firstName,
@@ -23,7 +26,8 @@ const UserForm = ({ user, closeDialog }) => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    await updateUser({ ...user, ...data })
     closeDialog();
     console.log(data);
   };
